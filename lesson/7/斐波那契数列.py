@@ -8,9 +8,11 @@ while True:
         print(1)
     else:
         sum = x + y
-        if sum > 100:
-            break
+        # if sum > 100:
+        #     break
         x = y
         y = sum
-        print(sum)
+        if i == 100:
+            print(sum)
+            break
     i += 1
