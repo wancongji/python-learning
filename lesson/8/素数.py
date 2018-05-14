@@ -1,6 +1,7 @@
 import math
 lst = [2]
-for i in range(2,100):
+n = 10000
+for i in range(2,n):
     for j in lst:
         if i % j == 0:
             break
