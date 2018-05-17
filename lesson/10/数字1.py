@@ -6,9 +6,9 @@ while True:
     else:
         print("输入错误，请输入数字!")
 
-# print("这是个{}位数".format(len(nums)))
-# for i in nums:
-#     print("数字{0},出现过{1}次".format(i,nums.count(i)))
+print("这是个{}位数".format(len(nums)))
+for i in nums:
+    print("数字{0},出现过{1}次".format(i,nums.count(i)))
 
 # 判断0-9的数字在字符串中出现的次数，每一次迭代都是用count
 counter = [0]*10
