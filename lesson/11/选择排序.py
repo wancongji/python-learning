@@ -1,4 +1,4 @@
-lst = [1,9,8,5,6,7,4,3,2]
+lst = [1, 9, 8, 5, 6, 7, 4, 3, 2]
 length = len(lst)
 
 for i in range(length):
