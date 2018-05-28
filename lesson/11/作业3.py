@@ -5,11 +5,8 @@ lst = []
 length = len(s)
 
 for _ in range(100):
-    x = random.randint(0,length-1)
-    y = random.randint(0,length-1)
-    a = s[x]
-    b = s[y]
-    lst.append(a+b)
+    # randstr = ''.join(random.sample(s, 2))
+    lst.append(''.join(random.choice(s) for _ in range(2)))
 
 for i in lst:
     if i not in d.keys():

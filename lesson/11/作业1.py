@@ -8,3 +8,6 @@ for i in num:
         dic[i] += 1
 
 print(dic)
+
+# 使用解析式打印
+[print('{} repeat {} times.'.format(k,v)) for k,v in dic.items()]
