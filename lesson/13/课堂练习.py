@@ -18,7 +18,14 @@ def triangle_print(n):
 
         print()
 
+def trangle_print2(n):
+    tail = ' '.join([str(i) for i in range(n,0,-1)])
+    width = len(tail)
+    for i in range(1,n+1):
+        print('{:>{}}'.format(' '.join([str(j) for j in range(i,0,-1)]), width))
+
 
 n = int(input('Please input a number: ').strip())
-triangle_print(n)
+# triangle_print(n)
+trangle_print2(n)
 
