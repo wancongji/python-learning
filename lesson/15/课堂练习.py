@@ -17,6 +17,25 @@ def reversal(n, lst=[]):
     return lst
 
 
-s = input("Please input a number: ")
-print(reversal(s))
-print(reversal.__defaults__)
+def reversal1(n, lst=[]):
+    x, y = divmod(n, 10)
+    lst.append(y)
+    if x == 0:
+        return lst
+    return reversal1(x, lst)
+
+
+print(reversal(str(1234)))
+print(reversal1(1234))
+
+
+# 猴子吃桃
+def peach(n, count=0):
+    count += 1
+    x = n // 2 - 1
+    if x < 1:
+        return x, count
+    return peach(x, count)
+
+
+print(peach(10))
