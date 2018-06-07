@@ -30,12 +30,18 @@ print(reversal1(1234))
 
 
 # 猴子吃桃
-def peach(n, count=0):
-    count += 1
-    x = n // 2 - 1
-    if x < 1:
-        return x, count
-    return peach(x, count)
+def peach(day=9, sum=1):
+    sum = 2 * (sum + 1)
+    day -= 1
+    if day == 0:
+        return sum
+    return peach(day, sum)
+
+def peach1(n):
+    if n == 1:
+        return 1
+    return (peach1(n-1)+1) * 2
 
 
-print(peach(10))
+print(peach())
+print(peach1(10))
