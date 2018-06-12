@@ -18,22 +18,33 @@ def sort(iterable, key=None, reverse=False):
 # print(sort(lst, reverse=True))
 
 # 复制属性
-def copy_properties(fn):
-    def wrapper(src, dst):
-        dst.__name__ = src.__name__
-        dst.__doc__ = src.__doc__
-    return wrapper
+# def copy_properties(src):
+#     def _copy(dst):
+#         dst.__name__ = src.__name__
+#         dst.__doc__ = src.__doc__
+#         dst.__qualname__ = src.__qualname__
+#         return dst
+#     return _copy
 
 # 装饰器
-@copy_properties
+import functools
+
 def logger(fn):
+    # @copy_properties(fn)
+    @functools.wraps(fn)
     def _logger(*args, **kwargs):
+        """
+        This is a wrapper
+        :param args:
+        :param kwargs:
+        :return:
+        """
         print('Before')
         ret = fn(*args, **kwargs)
         print('After')
         return ret
+    # functools.update_wrapper(_logger, fn)
 
-    # copy_properties(fn, _logger)
     return _logger
 
 
@@ -47,5 +58,6 @@ def add(x, y):
     return x + y
 
 
-print(add.__doc__)
-print(add(3, 4))
+print(add.__doc__, add.__name__, add.__qualname__, sep='\n')
+print(add.__wrapped__)
+# print(add(3, 4))
