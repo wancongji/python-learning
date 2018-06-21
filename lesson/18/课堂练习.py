@@ -1,9 +1,10 @@
 import inspect
-from functools import wraps
+# import functools
+# from functools import wraps
 
 
 def check(fn):
-    @wraps
+    # @functools.wraps
     def wrapper(*args, **kwargs):
         # 实参检查
         print(args, kwargs)
@@ -41,7 +42,7 @@ def add(x: int, y: int = 7) -> int:
     return x + y
 
 
-add(4)
+add(4, 5)
 
 # print(add.__annotations__)
 # sig = inspect.signature(add)
