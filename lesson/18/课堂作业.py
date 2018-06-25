@@ -8,7 +8,7 @@ def m_cache(duration):
     def _cache(fn):
         local_cache = {}
 
-        # @wraps
+        @wraps(fn)
         def wrapper(*args, **kwargs):
             # local_cache有没有过期的key
             def clear_expire():
