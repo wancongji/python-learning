@@ -4,9 +4,9 @@ def cmds_dispacher():
     cmd_tbl = {}
 
     # 注册
-    def reg(cmd, *args, **kwargs):
+    def reg(cmd):
         def _reg(fn):
-            func = partial(fn, *args, **kwargs)
+            func = partial(fn)
             cmd_tbl[cmd] = func
             return func
 
@@ -30,13 +30,13 @@ r, d = cmds_dispacher()
 
 # 自定义函数
 @r('mag')
-def foo1(x, y):
-    print('welcome mage', x, y)
+def foo1():
+    print('welcome mage')
 
 
 @r('edu')
-def foo2(a=1, b):
-    print('welcome mage2', a, b)
+def foo2():
+    print('welcome mage2')
 
 
 d()
