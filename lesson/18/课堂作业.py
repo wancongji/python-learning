@@ -52,11 +52,8 @@ def m_cache(duration):
 
             return key, local_cache[key]
 
-
-
-
-
         return wrapper
+
     return _cache
 
 
@@ -69,7 +66,6 @@ def logger(fn):
         return ret
 
     return wrapper
-
 
 
 @logger
