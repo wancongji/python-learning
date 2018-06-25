@@ -1,10 +1,10 @@
 import inspect
-# import functools
+import functools
 # from functools import wraps
 
 
 def check(fn):
-    # @functools.wraps
+    @functools.wraps(fn)
     def wrapper(*args, **kwargs):
         # 实参检查
         print(args, kwargs)
