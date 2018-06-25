@@ -29,6 +29,7 @@ def sort(iterable, key=None, reverse=False):
 # 装饰器
 import functools
 
+
 def logger(fn):
     # @copy_properties(fn)
     @functools.wraps(fn)
@@ -43,6 +44,7 @@ def logger(fn):
         ret = fn(*args, **kwargs)
         print('After')
         return ret
+
     # functools.update_wrapper(_logger, fn)
 
     return _logger

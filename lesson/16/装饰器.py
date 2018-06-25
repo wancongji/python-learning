@@ -1,7 +1,8 @@
-import functools
+from functools import wraps
 
 
 def logger(fn):
+    @wraps(fn)
     def _logger(*args, **kwargs):
         # before
         print("Before")
@@ -14,9 +15,9 @@ def logger(fn):
 
 
 @logger
-def add(x, y):
+def add(x, y=7):
     print("call add...")
     return x + y
 
 
-print(add(1, 2))
+add(1, 2)
