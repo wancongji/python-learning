@@ -11,6 +11,9 @@ def showdir(path: str = '.', all=False, detail=False, human=False):
 
         # -l
         if detail:
+            st = file.stat()
+            yield (st.st_mode, st.st_nlink, st.st_uid, st.st_gid, st.st_size,
+                   st.st_atime, file.name)
             pass
         else:
             yield file.name
@@ -41,4 +44,3 @@ if __name__ == '__main__':
 
     for file in showdir(args.path):
         print(file)
-
