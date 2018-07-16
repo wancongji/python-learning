@@ -58,6 +58,8 @@ def load(path):
 def window(src, handler, width: int, interval: int):
     start = datetime.datetime.strptime('1970/01/01 01:01:01 +0800', '%Y/%m/%d %H:%M:%S %z')
     current = datetime.datetime.strptime('1970/01/01 01:01:02 +0800', '%Y/%m/%d %H:%M:%S %z')
+    test = (current - start).total_seconds()
+    delta = datetime.timedelta(seconds=width - interval)
     buffer = []
 
     for x in src:
@@ -65,21 +67,28 @@ def window(src, handler, width: int, interval: int):
             buffer.append(x)
             current = x['datetime']
 
-        if (current - start).total_seconds() >= interval
+        if test >= interval:
+            ret = handler(buffer)
+
+            start = current - delta
+
+            # buffer的处理
+            buffer = [i for i in buffer if i['datetime'] > current - delta]
 
 
 def handler(iterable):
+    # TODO
     return sum(iterable) // len(iterable)
 
 
-window(load('test.log'), None, 0, 0)
+def donothing_handler(iterable: list):
+    print(iterable)
+    return iterable
 
 
+def size_handler(iterable):
+    # TODO
+    pass
 
 
-
-
-
-
-
-
+window(load('test.log'), donothing_handler, 10, 5)
