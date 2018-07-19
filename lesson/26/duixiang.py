@@ -11,5 +11,15 @@ class MyClass:
         return "foo = {}".format(self.x)
 
 
-mycls = MyClass()  # 实例化，初始化
-print(mycls.foo())
+class Person:
+    x = 'abc'
+
+    def __init__(self, name):
+        self.name = name
+        pass
+
+
+# mycls = MyClass()  # 实例化，初始化
+a = Person('tom')
+b = Person('jerry')
+print(a.name, b.name)
