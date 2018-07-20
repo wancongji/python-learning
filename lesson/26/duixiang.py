@@ -14,12 +14,21 @@ class MyClass:
 class Person:
     x = 'abc'
 
-    def __init__(self, name):
+    def __init__(self, name, age=18):
         self.name = name
-        pass
+        self.y = age
+
+    def show(self, x, y):
+        self.x = x
+        self.y = y
+        return self.x, self.y
 
 
 # mycls = MyClass()  # 实例化，初始化
 a = Person('tom')
-b = Person('jerry')
-print(a.name, b.name)
+b = Person('jerry', 20)
+
+print(a.__class__, b.__class__)
+print(a.__class__.__qualname__, b.__class__.__name__)
+
+print(isinstance(b, a.__class__))
