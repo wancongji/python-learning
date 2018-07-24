@@ -31,4 +31,8 @@ b = Person('jerry', 20)
 print(a.__class__, b.__class__)
 print(a.__class__.__qualname__, b.__class__.__name__)
 
+print(sorted(Person.__dict__.items()), end='\n\n')
+print(a.__dict__)
+print(b.__dict__)
+
 print(isinstance(b, a.__class__))
